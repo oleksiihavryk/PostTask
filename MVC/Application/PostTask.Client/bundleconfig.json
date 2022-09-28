@@ -1,0 +1,15 @@
+[
+  {
+    "outputFileName": "wwwroot/css/base.min.css",
+    "inputFiles": [
+      "wwwroot/css/base.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/bundles/styles.css",
+    "inputFiles": [
+      "wwwroot/css/base.css",
+      "wwwroot/css/special-styles.css"
+    ]
+  }
+]

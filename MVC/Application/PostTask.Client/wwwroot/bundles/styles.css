@@ -1,0 +1,239 @@
+@font-face {
+    font-family: Ubuntu;
+    src: url('/fonts/Ubuntu/Ubuntu-Bold.ttf') format('truetype'),
+         url('/fonts/Ubuntu/Ubuntu-BoldItalic.ttf') format('truetype'),
+         url('/fonts/Ubuntu/Ubuntu-Italic.ttf') format('truetype'),
+         url('/fonts/Ubuntu/Ubuntu-Light.ttf') format('truetype'),
+         url('/fonts/Ubuntu/Ubuntu-LightItalic.ttf') format('truetype'),
+         url('/fonts/Ubuntu/Ubuntu-Medium.ttf') format('truetype'),
+         url('/fonts/Ubuntu/Ubuntu-MediumItalic.ttf') format('truetype'),
+         url('/fonts/Ubuntu/Ubuntu-Regular.ttf') format('truetype')
+}
+
+/*Common settings*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Ubuntu;
+    background-color: white;
+    color: black;
+}
+
+/*Common text styles*/
+div.center-align {
+    text-align: center;
+}
+.important-text {
+    text-align: center;
+    margin: 0;
+    padding: 20px 5px;
+    font-size: 28px;
+    font-weight: 600;
+}
+p {
+    margin: 0;
+    padding: 10px 5px;
+    font-size: 18px;
+    font-weight: 500;
+}
+h1 {
+    margin: 5px 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 33px;
+}
+h2 {
+    margin: 5px 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+}
+h3 {
+    margin: 5px 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 27px;
+}
+h4 {
+    margin: 5px 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+}
+h5 {
+    margin: 5px 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 21px;
+}
+h6 {
+    margin: 5px 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+a.button {
+    padding: 10px 7.5px;
+    text-align: center;
+    background-color: #1620A6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    transition-duration: 0.3s;
+}
+a.button:hover {
+    background-color: #000052;
+    color: #5DACBD;
+}
+
+a.button:active {
+    color: white;
+}
+button {
+    padding: 10px 7.5px;
+    text-align: center;
+    background-color: #1620A6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    transition-duration: 0.3s;
+}
+button:hover {
+    background-color: #000052;
+    color: #5DACBD;
+}
+
+button:active {
+    color: white;
+}
+a.clickable-text {
+    color: #0077B6;
+}
+
+/*Sections,blocks and lists (not form)*/
+div.text-block {
+    padding: 10px;
+    text-align: center;
+    background-color: #000052;
+    color: white;
+}
+div.buttons-set {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: center;
+}
+div.buttons-set > * {
+    margin: 0 5px;
+}
+div.actions-section {
+    display: flex;
+    padding: 10px;
+    margin: 0;
+}
+
+/*Layout styles*/
+
+/*Header*/
+header {
+    background-color: #1F517B;
+    color: #5DACBD;
+}
+div.header-part {
+    height: 150px;
+    padding: 5px;
+    display: flex;
+}
+@media (max-width: 800px) {
+    div.header-part {
+        height: 100px;
+        padding: 5px;
+        display: flex;
+    }
+}
+.navigation-section {
+    padding: 0 5px 5px 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+.navigation-element {
+    padding: 5px;
+    flex-basis: 10%;
+    text-align: center;
+    font-size: 18px;
+    background-color: #1620A6;
+    text-decoration: none;
+    margin: 5px;
+    color: #5DACBD;
+    transition-duration: 0.3s;
+    padding: 2.5px;
+}
+.navigation-element:hover {
+    background-color: #000052;
+    text-decoration: underline;
+    color: #5DACBD; 
+}
+.navigation-element:active {
+    color: white;
+}
+
+/*Content*/
+content {
+    font-family: Verdana;
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+    padding: 5px;
+}
+@media (max-width: 800px) {
+    content {
+        width: 80%;
+    }
+}  
+.logo {
+    width: 150px;
+    height: 150px;
+}
+.logo > img {
+    width: 150px;
+    height: 150px;
+}
+@media (max-width: 800px) {
+    .logo {
+        width: 100px;
+        height: 100px;
+        flex-basis: 100px;
+    }
+    .logo > img {
+        width: 100px;
+        height: 100px;
+    }
+}  
+.horizontal-center-supporter {
+    height: 100%;
+}
+.horizontal-center {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.slogan {
+    margin-left: 10px;
+    font-size: 32px;
+    text-shadow: 2px 2px black;
+}
+@media (max-width: 800px) {
+    .slogan {
+        font-size: 18px;
+    }
+}  

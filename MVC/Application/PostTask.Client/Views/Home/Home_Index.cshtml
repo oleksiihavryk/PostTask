@@ -1,0 +1,42 @@
+﻿@{
+    string email = (@ViewBag.Email as string) ?? "#";
+}
+@section Content
+{
+    <h2>Home</h2>
+    <div class="text-block">
+        <p>That web site is currently in beta test!</p>
+        <p>
+            If you notice some bug or system security problem, please write me on my email
+            <a href="@email" class="clickable-text">click here</a>
+        </p>
+    </div>
+    <hr/>
+    <h3>About</h3>
+    <p>
+        This application was made for creating and management your own "Tasks".
+    </p>
+    <p>
+        "Task" - it is sort of application unit, some element which have text, time and
+        state. Example: make a dinner, 5:50 AM, be done in future.
+    </p>
+    <p>
+        You can combine this "tasks" in groups with unique name.
+        We recommend named your groups by common meaning of tasks, like "My day schedule",
+        "Shopping list", or etc...
+    </p>
+    <p>
+        Also created groups you can separate to replacing them to folders
+        with common meaning.
+    </p>
+    <hr />
+    <p class="important-text">
+        So, have fun using my application!
+    </p>
+    <div class="buttons-set">
+        <a class="button"
+            asp-action="Index" asp-controller="Home">
+            Create TASK!
+        </a>
+    </div>
+}
