@@ -27,11 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTask.Client.Tests", "MV
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTask.Authentication", "Authentication\Application\PostTask.Authentication\PostTask.Authentication.csproj", "{D88856D1-3ED4-4591-99B1-9C8C68C369C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.Client.Domain", "MVC\Application\PostTask.Client.Domain\PostTask.Client.Domain.csproj", "{893120D4-EE8A-4313-93E2-00F58F012DB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTask.Client.Domain", "MVC\Application\PostTask.Client.Domain\PostTask.Client.Domain.csproj", "{893120D4-EE8A-4313-93E2-00F58F012DB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.Client.Core", "MVC\Application\PostTask.Client.Core\PostTask.Client.Core.csproj", "{5A6F3953-6C02-4286-BB08-695F08018A39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTask.Client.Core", "MVC\Application\PostTask.Client.Core\PostTask.Client.Core.csproj", "{5A6F3953-6C02-4286-BB08-695F08018A39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.Client.Shared", "MVC\Application\PostTask.Client.Shared\PostTask.Client.Shared.csproj", "{1ECEA228-EB11-4612-9924-971A88CB5328}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTask.Client.Shared", "MVC\Application\PostTask.Client.Shared\PostTask.Client.Shared.csproj", "{1ECEA228-EB11-4612-9924-971A88CB5328}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

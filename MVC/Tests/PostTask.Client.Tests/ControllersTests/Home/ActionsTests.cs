@@ -1,6 +1,6 @@
 ﻿using PostTask.Client.Controllers;
 
-namespace PostTask.Client.Tests.ControllerTests.Home;
+namespace PostTask.Client.Tests.ControllersTests.Home;
 public class ActionsTests
 {
     [Fact]

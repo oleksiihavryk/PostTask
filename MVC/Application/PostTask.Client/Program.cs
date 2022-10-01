@@ -1,11 +1,16 @@
+using PostTask.Client.Core.Extensions;
 using PostTask.Client.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
-//Service features configuration
+//Setup static data and configurations
+//none
 
-//Main application features configuration
+//Setup DI container
+services.AddErrorHandler();
+
+//Setup framework features
 services.AddMVcWithDefaultOptions(); //Adding mvc with setup options
 
 //Build application

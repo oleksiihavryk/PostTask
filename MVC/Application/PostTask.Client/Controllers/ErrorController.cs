@@ -8,7 +8,8 @@ namespace PostTask.Client.Controllers;
 /// <summary>
 ///     Error handler controller
 /// </summary>
-public sealed class ErrorController : Controller
+// Note: that is a non sealed class because his used in unit testing
+public class ErrorController : Controller
 {
     /// <summary>
     ///     Error handler service
@@ -43,6 +44,6 @@ public sealed class ErrorController : Controller
             Name = error.Name
         };
 
-        return View(viewModel);
+        return View("Error_Index", viewModel);
     }
 }
