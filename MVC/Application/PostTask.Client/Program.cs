@@ -8,7 +8,7 @@ var services = builder.Services;
 //Main application features configuration
 services.AddMVcWithDefaultOptions(); //Adding mvc with setup options
 
-
+//Build application
 var app = builder.Build();
 var env = app.Environment;
 

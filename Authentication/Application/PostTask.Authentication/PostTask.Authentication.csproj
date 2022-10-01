@@ -7,15 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="bundleconfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="bundleconfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\PostTask.Client.Core\PostTask.Client.Core.csproj" />
+    <PackageReference Include="IdentityServer4" Version="4.1.2" />
   </ItemGroup>
 
 </Project>

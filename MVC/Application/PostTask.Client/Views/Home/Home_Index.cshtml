@@ -1,5 +1,6 @@
-﻿@{
-    string email = (@ViewBag.Email as string) ?? "#";
+﻿@using PostTask.Client.Controllers
+@{
+    string email = (@ViewData[HomeController.EmailKey] as string) ?? "#";
 }
 @section Content
 {
@@ -31,7 +32,7 @@
     </p>
     <hr />
     <p class="important-text">
-        So, have fun using my application!
+        So, have fun using the application!
     </p>
     <div class="buttons-set">
         <a class="button"
