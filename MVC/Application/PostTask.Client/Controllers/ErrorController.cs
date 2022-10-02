@@ -27,11 +27,13 @@ public class ErrorController : Controller
     /// <returns>
     ///     View with handled error
     /// </returns>
+    [Route("/Error")]
     public ViewResult Index()
     {
         var errorHandlerFeature = HttpContext
-            .RequestServices
-            .GetRequiredService<IExceptionHandlerFeature>();
+            .Features
+            .Get<IExceptionHandlerPathFeature>() ?? 
+                                  throw new InvalidOperationException("Impossible error");
         var exception = errorHandlerFeature.Error;
         
         var error = _eh.Handle(ex: exception);
@@ -46,4 +48,11 @@ public class ErrorController : Controller
 
         return View("Error_Index", viewModel);
     }
+    /// <summary>
+    ///     Invoke error on purpose (only for unfinished application)
+    /// </summary>
+    /// <exception cref="NotImplementedException">
+    ///     Occurred always
+    /// </exception>
+    public void Unimplemented() => throw new NotImplementedException();
 }

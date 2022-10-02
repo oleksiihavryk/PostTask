@@ -1,2 +1,11 @@
-﻿@section Content
-{}
+﻿@model ErrorViewModel
+@section Content
+{
+    <h2>@Model.Name</h2>
+    <p class="important-text">@Model.Message</p>
+    <p>Error location path: @Model.FullPath</p>
+    <div class="buttons-set">
+        <a class="button" href="@Model.FullPath">Try again</a>
+        <a class="button" asp-action="Index" asp-controller="Home">Home</a>
+    </div>
+}

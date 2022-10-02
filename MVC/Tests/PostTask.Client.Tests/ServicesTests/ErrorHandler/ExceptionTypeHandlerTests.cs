@@ -24,4 +24,17 @@ public class ExceptionTypeHandlerTests
         Assert.NotNull(error);
         Assert.Equal(error, _eh.DefaultError);
     }
+    [Fact]
+    public void ErrorHandler_Handle_NotImplementedException()
+    {
+        //arrange
+        var ue = new NotImplementedException();
+
+        //act
+        var error = _eh.Handle(ue);
+
+        //assert
+        Assert.NotNull(error);
+        Assert.Equal(error, _eh.TypeErrorModel[ue.GetType()]);
+    }
 }

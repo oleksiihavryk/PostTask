@@ -9,11 +9,16 @@ public sealed class ExceptionTypeErrorHandler : IErrorHandler
     /// <summary>
     ///     Type and error model dictionary for exception handler mechanism
     /// </summary>
-    private readonly IDictionary<Type, Error> _typeErrorModel =
+    public IDictionary<Type, Error> TypeErrorModel { get; } =
         new Dictionary<Type, Error>()
         {
+            [typeof(NotImplementedException)] = new Error()
+            {
+                Name = "Not implemented functionality",
+                Message = "This part of functionality currently not working. " +
+                          "Try again later."
+            }
         };
-
     /// <summary>
     ///     Default error what occurred when exception is unhandled by handler
     /// </summary>
@@ -38,7 +43,7 @@ public sealed class ExceptionTypeErrorHandler : IErrorHandler
 
         try
         {
-            result = _typeErrorModel[ex.GetType()];
+            result = TypeErrorModel[ex.GetType()];
         }
         catch (KeyNotFoundException)
         {

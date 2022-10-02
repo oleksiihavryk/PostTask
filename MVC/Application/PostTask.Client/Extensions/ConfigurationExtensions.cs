@@ -13,7 +13,7 @@ public static class ConfigurationExtensions
     /// <returns>
     ///     Returns MVC builder for adding extra configuration to MVC
     /// </returns>
-    public static IMvcBuilder AddMVcWithDefaultOptions(this IServiceCollection services)
+    public static IMvcBuilder AddMvcWithDefaultOptions(this IServiceCollection services)
         => services.AddMvc(opt => opt.EnableEndpointRouting = false);
     /// <summary>
     ///     Middleware shortcut for using MVC feature in middleware chain with

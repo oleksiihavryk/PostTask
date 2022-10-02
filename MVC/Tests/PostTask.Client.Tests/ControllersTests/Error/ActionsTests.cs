@@ -16,19 +16,18 @@ public class ActionsTests
         _hc = new DefaultHttpContext()
         {
             RequestServices = new ServiceCollection()
+                .AddLogging()
                 .AddMvc()
                 .Services
-                .AddLogging()
-                .AddSingleton<IExceptionHandlerFeature>(
-                    new ExceptionHandlerFeature()
-                    {
-                        Error = new UnknownException(),
-                        Path = string.Empty,
-                        Endpoint = null,
-                        RouteValues = null
-                    })
-                .BuildServiceProvider()
+                .BuildServiceProvider(),
         };
+        _hc.Features.Set<IExceptionHandlerPathFeature>(new ExceptionHandlerFeature()
+        {
+            Error = new UnknownException(),
+            Path = string.Empty,
+            Endpoint = null,
+            RouteValues = null
+        });
     }
 
     [Fact]

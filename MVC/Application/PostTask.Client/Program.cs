@@ -11,7 +11,7 @@ var services = builder.Services;
 services.AddErrorHandler();
 
 //Setup framework features
-services.AddMVcWithDefaultOptions(); //Adding mvc with setup options
+services.AddMvcWithDefaultOptions(); //Adding mvc with setup options
 
 //Build application
 var app = builder.Build();
