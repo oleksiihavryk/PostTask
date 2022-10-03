@@ -1,5 +1,4 @@
-﻿using IdentityModel;
-using IdentityServer4.ResponseHandling;
+﻿using IdentityServer4.ResponseHandling;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PostTask.Authentication.Core.ClaimProvider;
@@ -30,8 +29,10 @@ public class AccountController : Controller
 
     public Task<ViewResult> Login()
     {
+        throw new NotImplementedException();
     }
     public Task<ViewResult> Logout()
     {
+        throw new NotImplementedException();
     }
 }

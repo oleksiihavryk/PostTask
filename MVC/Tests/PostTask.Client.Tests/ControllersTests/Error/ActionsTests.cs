@@ -34,7 +34,7 @@ public class ActionsTests
     }
 
     [Fact]
-    public void ErrorController_ActionIndex_OnExceptionTypeErrorHandler()
+    public async Task ErrorController_ActionIndex_OnExceptionTypeErrorHandler()
     {
         //arrange
         var eh = new ExceptionTypeErrorHandler();
@@ -42,7 +42,7 @@ public class ActionsTests
         c.ControllerContext.HttpContext = _hc;
 
         //act
-        var res = c.Index();
+        var res = await c.Index();
 
         //assert
         var viewModel = Assert.IsType<ErrorViewModel>(res.Model);

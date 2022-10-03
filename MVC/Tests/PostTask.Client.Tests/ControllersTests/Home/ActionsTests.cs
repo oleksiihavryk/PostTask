@@ -4,13 +4,13 @@ namespace PostTask.Client.Tests.ControllersTests.Home;
 public class ActionsTests
 {
     [Fact]
-    public void HomeController_IndexActionTest()
+    public async Task HomeController_IndexActionTest()
     {
         //arrange
         var h = new HomeController();
 
         //act
-        var res = h.Index();
+        var res = await h.Index();
         var emailLink = res.ViewData[HomeController.EmailKey];
 
         //assert

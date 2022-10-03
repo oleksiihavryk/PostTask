@@ -17,14 +17,15 @@ public sealed class HomeController : Controller
     /// <returns>
     ///     View of main page
     /// </returns>
-    public ViewResult Index()
-    {
-        @ViewData[EmailKey] = "https://mail.google.com/mail/?" +
-                         "view=cm&" +
-                         "fs=1&" +
-                         "to=" + "oleksii.havryk2004@gmail.com" + "&" +
-                         "su=" + "PostTask question/bug report" + "&" +
-                         $"body=" + "-" + "&";
-        return View("Home_Index");
-    } 
+    public async Task<ViewResult> Index()
+        => await Task.Run(() =>
+        {
+            @ViewData[EmailKey] = "https://mail.google.com/mail/?" +
+                                  "view=cm&" +
+                                  "fs=1&" +
+                                  "to=" + "oleksii.havryk2004@gmail.com" + "&" +
+                                  "su=" + "PostTask question/bug report" + "&" +
+                                  $"body=" + "-" + "&";
+            return View("Home_Index");
+        });
 }
