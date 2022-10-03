@@ -2,7 +2,7 @@
 /// <summary>
 ///     Application configuration
 /// </summary>
-public static class ConfigurationExtensions
+internal static class ConfigurationExtensions
 {
     /// <summary>
     ///     Adds support of MVC feature with default application options

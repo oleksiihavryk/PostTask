@@ -21,6 +21,9 @@ public class ActionsTests
                 .Services
                 .BuildServiceProvider(),
         };
+
+        _hc.Request.Host = new HostString(string.Empty);
+        _hc.Request.Scheme = string.Empty;
         _hc.Features.Set<IExceptionHandlerPathFeature>(new ExceptionHandlerFeature()
         {
             Error = new UnknownException(),

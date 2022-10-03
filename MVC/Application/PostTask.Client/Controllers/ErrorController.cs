@@ -37,7 +37,8 @@ public class ErrorController : Controller
         var exception = errorHandlerFeature.Error;
         
         var error = _eh.Handle(ex: exception);
-        var fullPath = errorHandlerFeature.GetFullPath();
+        var schemeHostUrl = Request.Scheme + "://" + Request.Host;
+        var fullPath = errorHandlerFeature.GetFullPath(schemeHostUrl);
 
         var viewModel = new ErrorViewModel()
         {
