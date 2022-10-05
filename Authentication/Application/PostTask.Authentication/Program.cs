@@ -13,15 +13,29 @@ config.SetupIdentityServerStaticData();
 
 //Setup DI Container
 services.AddIdentityDatabaseInitializer(); //Add identity database initializer
+services.AddUserClaimProvider();
 
 //Setup framework features
-services.AddMvcWithDefaultOptions();
+services.AddControllersWithViews();
 services.AddCommonIdentityDatabaseWithOptions(from: config);
 services.AddIdentityServerWithDefaultOptions();
 
 //Build application
 var app = builder.Build();
+var isDevelopment = app.Environment.IsDevelopment();
 
 //Middleware configurations
+app.UseRouting();
+
+if (isDevelopment)
+{
+    app.UseDeveloperExceptionPage();
+}
+app.UseStatusCodePages();
+
+app.UseStaticFiles();
 app.UseIdentityServer();
+
+app.UseControllerEndpoints();
+
 app.Run();

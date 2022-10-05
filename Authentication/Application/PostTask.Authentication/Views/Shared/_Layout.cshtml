@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <meta charset="utf-8" />
+    <title>PostTask | Authentication</title>
+    <environment names="development">
+        <link rel="stylesheet" type="text/css" asp-href-include="/bundles/styles.css"/>
+    </environment>
+    <environment names="staging, production">
+        <link rel="stylesheet" type="text/css" asp-href-include="/bundles/styles.min.css" />
+    </environment>
+</head>
+<body>
+    @await Html.PartialAsync("_Header")
+    <content>
+        @await RenderSectionAsync("Content")
+    </content>
+    @await RenderSectionAsync("Scripts", false)
+</body>
+</html>

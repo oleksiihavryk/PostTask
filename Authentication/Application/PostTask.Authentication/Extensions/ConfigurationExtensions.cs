@@ -33,17 +33,15 @@ internal static class ConfigurationExtensions
         return services;
     }
     /// <summary>
-    ///     Adds MVC services to service features with default options
+    ///     Use controller endpoints middleware
     /// </summary>
-    /// <param name="services">
-    ///     Service features provider
+    /// <param name="app">
+    ///     Application middleware chain provider
     /// </param>
     /// <returns>
     ///     Returns itself
     /// </returns>
-    public static IServiceCollection AddMvcWithDefaultOptions(
-        this IServiceCollection services)
-        => services
-            .AddMvc(opt => opt.EnableEndpointRouting = false)
-            .Services;
+    public static IApplicationBuilder UseControllerEndpoints(
+        this IApplicationBuilder app)
+        => app.UseEndpoints(configure => configure.MapControllers());
 }

@@ -1,0 +1,38 @@
+﻿.logo {
+    width: 150px;
+    height: 150px;
+}
+.logo > img {
+    width: 150px;
+    height: 150px;
+}
+@media (max-width: 800px) {
+    .logo {
+        width: 100px;
+        height: 100px;
+        flex-basis: 100px;
+    }
+    .logo > img {
+        width: 100px;
+        height: 100px;
+    }
+}  
+.horizontal-center-supporter {
+    height: 100%;
+}
+.horizontal-center {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.slogan {
+    margin-left: 10px;
+    font-size: 32px;
+    text-shadow: 2px 2px black;
+}
+@media (max-width: 800px) {
+    .slogan {
+        font-size: 18px;
+    }
+}  

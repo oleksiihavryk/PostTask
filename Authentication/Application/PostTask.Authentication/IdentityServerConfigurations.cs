@@ -13,7 +13,7 @@ internal static class IdentityServerConfigurations
     ///     All clients in identity server
     /// </summary>
     public static List<Client> Clients =>
-        new List<Client>()
+        new()
         {
             new Client()
             {
