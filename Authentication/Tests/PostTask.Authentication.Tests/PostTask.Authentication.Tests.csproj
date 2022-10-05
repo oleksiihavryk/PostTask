@@ -26,4 +26,8 @@
     <ProjectReference Include="..\..\Application\PostTask.Authentication\PostTask.Authentication.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ServicesTests\DatabaseInitializer\" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using IdentityModel;
 using Microsoft.AspNetCore.Identity;
+using PostTask.Authentication.Core.Exceptions;
 using PostTask.Authentication.Domain;
 
 namespace PostTask.Authentication.Core.ClaimProvider;
@@ -13,15 +14,17 @@ public class ContainClaimsClaimProvider : IClaimProvider<User>
     ///     User manager for providing claims
     /// </summary>
     private readonly UserManager<User> _userManager;
+
     /// <summary>
     ///     Dictionary of claims and action which take a user and return value of claim
     /// </summary>
-    private readonly IDictionary<string, Func<User, string>> _claimsAndActions =
+    public IDictionary<string, Func<User, string>> ClaimsAndActions { get; } =
         new Dictionary<string, Func<User, string>>
         {
             [JwtClaimTypes.PreferredUserName] = u => u.UserName,
             [JwtClaimTypes.Id] = u => u.Id
         };
+    public string RoleClaimType { get; } = JwtClaimTypes.Role;
 
     public ContainClaimsClaimProvider(UserManager<User> userManager)
     {
@@ -40,8 +43,11 @@ public class ContainClaimsClaimProvider : IClaimProvider<User>
     /// </returns>
     public async Task ProvideAsync(User user)
     {
+        if ((await _userManager.FindByNameAsync(user.UserName)) == null)
+            throw new UserNotFoundException(user.UserName, user.Id);
+
         var claims = new List<Claim>();
-        foreach (var claimAndAction in _claimsAndActions)
+        foreach (var claimAndAction in ClaimsAndActions)
             claims.Add(new Claim(claimAndAction.Key, claimAndAction.Value(user)));
 
         await _userManager.AddClaimsAsync(user, claims);
@@ -61,7 +67,10 @@ public class ContainClaimsClaimProvider : IClaimProvider<User>
     /// </returns>
     public async Task ProvideRoleClaimAsync(User user, Roles role)
     {
-        var claim = new Claim(JwtClaimTypes.Role, role.ToString());
+        if ((await _userManager.FindByNameAsync(user.UserName)) == null)
+            throw new UserNotFoundException(user.UserName, user.Id);
+
+        var claim = new Claim(RoleClaimType, role.ToString());
         await _userManager.AddClaimAsync(user, claim);
     }
 }
