@@ -1,4 +1,6 @@
-﻿<header>
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+<header>
     <div class="header-part">
         <a asp-action="Index" asp-controller="Home" class="logo"><img src="/img/logo.png"/></a>
         <div class="horizontal-center-supporter">
@@ -8,13 +10,34 @@
         </div>
     </div>
     <nav class="navigation-section">
+        @if (User.Identity?.IsAuthenticated != true)
+        {
+            <a class="navigation-element authentication-element"
+           asp-action="Login" asp-controller="Home">
+                Login
+            </a>
+        }
+        else
+        {
+            <a class="navigation-element authentication-element"
+               asp-action="Logout" asp-controller="Home">
+                    Logout
+            </a>
+            <a class="navigation-element authentication-element"
+               asp-action="Unimplemented" asp-controller="Error">
+
+                @{
+                    var claims = User.Claims;
+                    var userName = claims
+                        .FirstOrDefault(c => ClaimTypes.Name == c.Type)?
+                        .Value;
+                }
+                @userName
+            </a>
+        }
         <a class="navigation-element"
            asp-action="Index" asp-controller="Home">
             Home
-        </a>
-        <a class="navigation-element"
-           asp-action="Index" asp-controller="Home">
-            Login
         </a>
     </nav>
 </header>

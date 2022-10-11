@@ -140,62 +140,65 @@ div.actions-section {
 
 /*Layout styles*/
 
-/*Header*/
-header {
-    background-color: #1F517B;
-    color: #5DACBD;
-}
-div.header-part {
-    height: 150px;
-    padding: 5px;
-    display: flex;
-}
-@media (max-width: 800px) {
-    div.header-part {
-        height: 100px;
-        padding: 5px;
-        display: flex;
-    }
-}
-.navigation-section {
-    padding: 0 5px 5px 5px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-}
-.navigation-element {
-    padding: 5px;
-    flex-basis: 10%;
-    text-align: center;
-    font-size: 18px;
-    background-color: #1620A6;
-    text-decoration: none;
-    margin: 5px;
-    color: #5DACBD;
-    transition-duration: 0.3s;
-    padding: 2.5px;
-}
-.navigation-element:hover {
-    background-color: #000052;
-    text-decoration: underline;
-    color: #5DACBD; 
-}
-.navigation-element:active {
-    color: white;
-}
-
 /*Content*/
 content {
-    font-family: Verdana;
-    display: block;
+    display: flex;
     width: 60%;
+    min-height: 90vh;
     margin: 0 auto;
-    padding: 5px;
+    padding: 5vh 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 @media (max-width: 800px) {
     content {
         width: 80%;
     }
-}  
+}
+
+/*Form styles*/
+form {
+    max-width: 400px;
+    padding: 20px 5px;
+    background-color: #5dacbd;
+    color: azure;
+}
+div.form-group {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+}
+label {
+    padding: 5px 0;
+    font-size: 22px;
+}
+input[type="text"] {
+    padding: 5px;
+    font-size: 18px;
+    border: 2px solid black;
+    border-radius: 10px;
+    outline: none;
+    transition-duration: 0.2s;
+}
+input[type="text"]:focus {
+    border-radius: 20px;
+}
+input[type="password"] {
+    padding: 2px;
+    font-size: 18px;
+    border: 2px solid black;
+    border-radius: 10px;
+    outline: none;
+    transition-duration: 0.2s;
+}
+
+input[type="password"]:focus {
+    border-radius: 20px;
+}
+
+/*Lists*/
+ol {
+}
+ul {
+}

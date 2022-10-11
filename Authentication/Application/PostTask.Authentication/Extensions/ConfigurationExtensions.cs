@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using PostTask.Authentication.Core.DatabaseInitializer;
 using PostTask.Authentication.Data.Context;
 using PostTask.Authentication.Domain;
-using PostTask.Authentication.Shared.StaticData;
 
 namespace PostTask.Authentication.Extensions;
 /// <summary>
@@ -21,14 +20,24 @@ internal static class ConfigurationExtensions
     public static IServiceCollection AddIdentityServerWithDefaultOptions(
         this IServiceCollection services)
     {
-        services.AddIdentity<User, Role>()
+        services.AddIdentity<User, Role>(opt =>
+            {
+                var pass = opt.Password;
+                pass.RequireDigit = true;
+                pass.RequireLowercase = false;
+                pass.RequireNonAlphanumeric = false;
+                pass.RequireUppercase = false;
+                pass.RequiredLength = 8;
+                pass.RequiredUniqueChars = 4;
+            })
             .AddEntityFrameworkStores<CommonIdentityDbContext>();
 
         services.AddIdentityServer()
             .AddInMemoryIdentityResources(IdentityServerConfigurations.IdentityResources)
             .AddInMemoryApiResources(IdentityServerConfigurations.ApiResources)
             .AddInMemoryApiScopes(IdentityServerConfigurations.ApiScopes)
-            .AddInMemoryClients(IdentityServerConfigurations.Clients);
+            .AddInMemoryClients(IdentityServerConfigurations.Clients)
+            .AddDeveloperSigningCredential();
 
         return services;
     }
@@ -44,4 +53,24 @@ internal static class ConfigurationExtensions
     public static IApplicationBuilder UseControllerEndpoints(
         this IApplicationBuilder app)
         => app.UseEndpoints(configure => configure.MapControllers());
+    /// <summary>
+    ///     Seeding default application data into service database
+    /// </summary>
+    /// <param name="app">
+    ///     Application unit provider
+    /// </param>
+    /// <returns>
+    ///     Returns task of async operation by seeding data into service database
+    /// </returns>
+    public static async Task InitializeCommonIdentityDatabase(this IApplicationBuilder app)
+    {
+        using var scope = app.ApplicationServices.CreateScope();
+        var initializer = scope.ServiceProvider.
+            GetRequiredService<IIdentityDatabaseInitializer>();
+
+        await initializer.Initialize(mode: 
+            IIdentityDatabaseInitializer.InitializationMode.Admins | 
+            IIdentityDatabaseInitializer.InitializationMode.Roles | 
+            IIdentityDatabaseInitializer.InitializationMode.Users);
+    }
 }

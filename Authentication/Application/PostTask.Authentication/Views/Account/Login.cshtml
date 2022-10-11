@@ -1,5 +1,30 @@
 ﻿@model LoginViewModel
 @section Content
 {
-    Baba
+    <div asp-validation-summary="All"></div>
+    <form method="post"
+          asp-action="Login" asp-controller="Account">
+        <h2>Login</h2>
+        <div class="form-group">
+            <label asp-for="Username"></label>
+            <input asp-for="Username"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password"/>
+        </div>
+        <div class="buttons-set">
+            <button type="submit">Login</button>
+        </div>
+        <div class="center-align">
+            <p>
+                If you do not have any account -
+                <a class="clickable-text"
+                   asp-action="Register" asp-controller="Account"
+                   asp-route-returnUrl="@Model.ReturnUrl">"click here"</a>
+                for register new account
+            </p>
+        </div>
+        <input asp-for="ReturnUrl" hidden/>
+    </form>
 }

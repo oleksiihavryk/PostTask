@@ -1,17 +1,23 @@
 using PostTask.Client.Core.Extensions;
 using PostTask.Client.Extensions;
+using PostTask.Client.Shared.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
+var config = builder.Configuration;
 
 //Setup static data and configurations
-//none
+services.SetupRouteOptions();
+config.SetupOidcConfigurationStaticData();
+config.SetupServersStaticData();
 
 //Setup DI container
 services.AddErrorHandler();
 
 //Setup framework features
 services.AddMvcWithDefaultOptions(); //Adding mvc with setup options
+services.AddAuthenticationWithDefaultOptions();
+services.AddAuthorizationWithDefaultOptions();
 
 //Build application
 var app = builder.Build();
@@ -33,7 +39,9 @@ else
 
 app.UseStaticFiles();
 
-app.UseMvcWithApplicationRoutes();
+app.UseAuthentication();
+app.UseAuthorization();
 
+app.UseMvcWithApplicationRoutes();
 
 app.Run(); // Run application with configured middleware

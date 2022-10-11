@@ -1,5 +1,34 @@
 ﻿@model RegisterViewModel
 @section Content
 {
-    Baba
+    <div asp-validation-summary="All"></div>
+    <form method="post"
+          asp-action="Register" asp-controller="Account">
+        <h2>Register</h2>
+        <div class="form-group">
+            <label asp-for="Username"></label>
+            <input asp-for="Username"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="RepeatPassword"></label>
+            <input asp-for="RepeatPassword"/>
+        </div>
+        <div class="buttons-set">
+            <button type="submit">Register</button>
+        </div>
+        <div class="center-align">
+            <p>
+                Already have an account?
+                <a class="clickable-text"
+                   asp-action="Login" asp-controller="Account"
+                   asp-route-returnUrl="@Model.ReturnUrl">"Click here"</a>
+                for login in system
+            </p>
+        </div>
+        <input asp-for="ReturnUrl" hidden />
+    </form>
 }

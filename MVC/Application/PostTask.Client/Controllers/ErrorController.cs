@@ -9,7 +9,7 @@ namespace PostTask.Client.Controllers;
 ///     Error handler controller
 /// </summary>
 // Note: that is a non sealed class because his used in unit testing
-public class ErrorController : Controller
+public sealed class ErrorController : Controller
 {
     /// <summary>
     ///     Error handler service

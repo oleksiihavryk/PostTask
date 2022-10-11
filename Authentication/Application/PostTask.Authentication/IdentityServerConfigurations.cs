@@ -1,6 +1,6 @@
-﻿using IdentityModel;
+﻿using System.Security.Claims;
+using IdentityModel;
 using IdentityServer4.Models;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using PostTask.Authentication.Shared.StaticData;
 
 namespace PostTask.Authentication;
@@ -26,9 +26,9 @@ internal static class IdentityServerConfigurations
                         ToSha256())
                 },
 
-                AllowedGrantTypes = { OpenIdConnectGrantTypes.AuthorizationCode },
-
                 AllowedScopes = IdentityServerStaticConfigurations.Mvc.Scopes,
+                
+                AllowedGrantTypes = GrantTypes.Code,
 
                 RequirePkce = true,
                 AllowAccessTokensViaBrowser = true,
@@ -50,13 +50,20 @@ internal static class IdentityServerConfigurations
     public static List<IdentityResource> IdentityResources =>
         new List<IdentityResource>()
         {
-            new IdentityResources.OpenId(),
+            new IdentityResource(
+                name: OidcConstants.StandardScopes.OpenId,
+                userClaims: new List<string>
+                {
+                    ClaimTypes.NameIdentifier,
+                    JwtClaimTypes.Subject
+                }),
             new IdentityResource(
                 name: OidcConstants.StandardScopes.Profile, 
-                userClaims: new List<string>()
+                userClaims: new List<string>
                 {
-                    JwtClaimTypes.PreferredUserName
-                })
+                    ClaimTypes.Name,
+                    ClaimTypes.Role
+                }),
         };
     /// <summary>
     ///     All api that can do authentication on current server

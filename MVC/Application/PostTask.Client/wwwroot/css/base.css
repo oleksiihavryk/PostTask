@@ -176,14 +176,22 @@ div.header-part {
     color: #5DACBD;
     transition-duration: 0.3s;
     padding: 2.5px;
+    border: 2px solid #1620A6;
 }
 .navigation-element:hover {
     background-color: #000052;
     text-decoration: underline;
-    color: #5DACBD; 
+    color: #5DACBD;
+    border: 2px solid #1F517B;
 }
 .navigation-element:active {
     color: white;
+}
+.navigation-element.authentication-element {
+    border: 2px solid black;
+}
+.navigation-element.authentication-element:hover {
+    border: 2px solid #1F517B;
 }
 
 /*Content*/

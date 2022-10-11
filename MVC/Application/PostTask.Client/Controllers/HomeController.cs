@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using PostTask.Client.Shared.Constants;
 
 namespace PostTask.Client.Controllers;
 /// <summary>
@@ -27,5 +29,32 @@ public sealed class HomeController : Controller
                                   "su=" + "PostTask question/bug report" + "&" +
                                   $"body=" + "-" + "&";
             return View("Home_Index");
+        });
+    /// <summary>
+    ///     Action for user login in system
+    /// </summary>
+    /// <returns>
+    ///     Login in system and redirect to main page
+    /// </returns>
+    [Authorize]
+    public async Task<RedirectToActionResult> Login()
+        => await Task.Run(() => RedirectToAction(nameof(Index)));
+
+    /// <summary>
+    ///     Action for user logout from system
+    /// </summary>
+    /// <returns>
+    ///     Logout from system
+    /// </returns>
+    [Authorize]
+    public async Task<SignOutResult> Logout()
+        => await Task.Run(() =>
+        {
+            return SignOut(
+                authenticationSchemes: new[]
+                {
+                    AuthenticationConstants.CookieAuthenticationScheme,
+                    AuthenticationConstants.OidcAuthenticationScheme
+                });
         });
 }

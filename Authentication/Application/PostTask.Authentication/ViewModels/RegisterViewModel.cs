@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using PostTask.Authentication.Infrastructure.ModelValidators;
 
 namespace PostTask.Authentication.ViewModels;
 
 /// <summary>
 ///     Register page view model
 /// </summary>
+[RegisterViewModelSamePasswordsModelValidator]
 public sealed class RegisterViewModel
 {
     /// <summary>

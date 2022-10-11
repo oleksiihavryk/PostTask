@@ -10,6 +10,7 @@ var config = builder.Configuration;
 //Setup static data and configurations
 config.SetupServersStaticData();
 config.SetupIdentityServerStaticData();
+services.ConfigureIdentityDatabaseInitializer(from: config);
 
 //Setup DI Container
 services.AddIdentityDatabaseInitializer(); //Add identity database initializer
@@ -23,6 +24,8 @@ services.AddIdentityServerWithDefaultOptions();
 //Build application
 var app = builder.Build();
 var isDevelopment = app.Environment.IsDevelopment();
+
+await app.InitializeCommonIdentityDatabase(); // Seeding
 
 //Middleware configurations
 app.UseRouting();

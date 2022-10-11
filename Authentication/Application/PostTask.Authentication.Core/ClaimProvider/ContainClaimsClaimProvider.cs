@@ -21,10 +21,11 @@ public class ContainClaimsClaimProvider : IClaimProvider<User>
     public IDictionary<string, Func<User, string>> ClaimsAndActions { get; } =
         new Dictionary<string, Func<User, string>>
         {
-            [JwtClaimTypes.PreferredUserName] = u => u.UserName,
-            [JwtClaimTypes.Id] = u => u.Id
+            [ClaimTypes.Name] = u => u.UserName,
+            [ClaimTypes.NameIdentifier] = u => u.Id,
+            [JwtClaimTypes.Subject] = u => u.Id
         };
-    public string RoleClaimType { get; } = JwtClaimTypes.Role;
+    public string RoleClaimType { get; } = ClaimTypes.Role;
 
     public ContainClaimsClaimProvider(UserManager<User> userManager)
     {

@@ -7,7 +7,7 @@ public interface IIdentityDatabaseInitializer
     /// <summary>
     ///     Initialize database
     /// </summary>
-    void Initialize(InitializationMode mode);
+    Task Initialize(InitializationMode mode);
     /// <summary>
     ///     Database initialization mode
     /// </summary>
