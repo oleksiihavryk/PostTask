@@ -33,15 +33,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTask.Client.Core", "MVC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTask.Client.Shared", "MVC\Application\PostTask.Client.Shared\PostTask.Client.Shared.csproj", "{1ECEA228-EB11-4612-9924-971A88CB5328}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.Authentication.Shared", "Authentication\Application\PostTask.Authentication.Shared\PostTask.Authentication.Shared.csproj", "{4FF7B8C3-872E-4D88-8963-8D3D908D0DD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTask.Authentication.Shared", "Authentication\Application\PostTask.Authentication.Shared\PostTask.Authentication.Shared.csproj", "{4FF7B8C3-872E-4D88-8963-8D3D908D0DD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.Authentication.Domain", "Authentication\Application\PostTask.Authentication.Domain\PostTask.Authentication.Domain.csproj", "{152CE231-AD60-45D8-8F82-BDCF10D106BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTask.Authentication.Domain", "Authentication\Application\PostTask.Authentication.Domain\PostTask.Authentication.Domain.csproj", "{152CE231-AD60-45D8-8F82-BDCF10D106BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.Authentication.Core", "Authentication\Application\PostTask.Authentication.Core\PostTask.Authentication.Core.csproj", "{DB7F0492-D739-43B0-AC1A-F111689293B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTask.Authentication.Core", "Authentication\Application\PostTask.Authentication.Core\PostTask.Authentication.Core.csproj", "{DB7F0492-D739-43B0-AC1A-F111689293B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.Authentication.Data", "Authentication\Application\PostTask.Authentication.Data\PostTask.Authentication.Data.csproj", "{44547F77-773E-4304-B4C2-BC786596757F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTask.Authentication.Data", "Authentication\Application\PostTask.Authentication.Data\PostTask.Authentication.Data.csproj", "{44547F77-773E-4304-B4C2-BC786596757F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.Authentication.Tests", "Authentication\Tests\PostTask.Authentication.Tests\PostTask.Authentication.Tests.csproj", "{2A6EC7AB-C0FE-4DE6-ADDB-DBB44C5B1D57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostTask.Authentication.Tests", "Authentication\Tests\PostTask.Authentication.Tests\PostTask.Authentication.Tests.csproj", "{2A6EC7AB-C0FE-4DE6-ADDB-DBB44C5B1D57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.RestService", "Resources\Application\PostTask.RestService\PostTask.RestService.csproj", "{045C01BF-A192-49C1-B046-E2A38D115933}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.RestService.Tests", "Resources\Tests\PostTask.RestService.Tests\PostTask.RestService.Tests.csproj", "{DBEEC5AC-342B-457D-AD33-E54B2D1EA66C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.RestService.Core", "Resources\Application\PostTask.RestService.Core\PostTask.RestService.Core.csproj", "{3CF426FB-F2B6-49AB-9BF5-83755C236EA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.RestService.Data", "Resources\Application\PostTask.RestService.Data\PostTask.RestService.Data.csproj", "{2F57EC0B-6C19-43AF-A973-78FCE8567427}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.RestService.Shared", "Resources\Application\PostTask.RestService.Shared\PostTask.RestService.Shared.csproj", "{8680102E-07AF-470C-A4E9-E0BF444F16F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostTask.RestService.Domain", "Resources\Application\PostTask.RestService.Domain\PostTask.RestService.Domain.csproj", "{E5B0358C-22A8-4F18-9C79-BC0253E20033}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +105,30 @@ Global
 		{2A6EC7AB-C0FE-4DE6-ADDB-DBB44C5B1D57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A6EC7AB-C0FE-4DE6-ADDB-DBB44C5B1D57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A6EC7AB-C0FE-4DE6-ADDB-DBB44C5B1D57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{045C01BF-A192-49C1-B046-E2A38D115933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{045C01BF-A192-49C1-B046-E2A38D115933}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{045C01BF-A192-49C1-B046-E2A38D115933}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{045C01BF-A192-49C1-B046-E2A38D115933}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBEEC5AC-342B-457D-AD33-E54B2D1EA66C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBEEC5AC-342B-457D-AD33-E54B2D1EA66C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBEEC5AC-342B-457D-AD33-E54B2D1EA66C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBEEC5AC-342B-457D-AD33-E54B2D1EA66C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CF426FB-F2B6-49AB-9BF5-83755C236EA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CF426FB-F2B6-49AB-9BF5-83755C236EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CF426FB-F2B6-49AB-9BF5-83755C236EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CF426FB-F2B6-49AB-9BF5-83755C236EA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F57EC0B-6C19-43AF-A973-78FCE8567427}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F57EC0B-6C19-43AF-A973-78FCE8567427}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F57EC0B-6C19-43AF-A973-78FCE8567427}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F57EC0B-6C19-43AF-A973-78FCE8567427}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8680102E-07AF-470C-A4E9-E0BF444F16F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8680102E-07AF-470C-A4E9-E0BF444F16F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8680102E-07AF-470C-A4E9-E0BF444F16F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8680102E-07AF-470C-A4E9-E0BF444F16F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5B0358C-22A8-4F18-9C79-BC0253E20033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5B0358C-22A8-4F18-9C79-BC0253E20033}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5B0358C-22A8-4F18-9C79-BC0253E20033}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5B0358C-22A8-4F18-9C79-BC0253E20033}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +151,12 @@ Global
 		{DB7F0492-D739-43B0-AC1A-F111689293B2} = {69E6EB13-876F-4E0C-95F5-14EEAC1911DC}
 		{44547F77-773E-4304-B4C2-BC786596757F} = {69E6EB13-876F-4E0C-95F5-14EEAC1911DC}
 		{2A6EC7AB-C0FE-4DE6-ADDB-DBB44C5B1D57} = {2B094A30-7D13-4E26-AA1C-8B3E86D3C14D}
+		{045C01BF-A192-49C1-B046-E2A38D115933} = {5DB133C4-2EB7-4207-8E55-9307E65A0B8A}
+		{DBEEC5AC-342B-457D-AD33-E54B2D1EA66C} = {F8A94A0B-034D-4CEF-83FC-83AF1A1CA8CF}
+		{3CF426FB-F2B6-49AB-9BF5-83755C236EA8} = {5DB133C4-2EB7-4207-8E55-9307E65A0B8A}
+		{2F57EC0B-6C19-43AF-A973-78FCE8567427} = {5DB133C4-2EB7-4207-8E55-9307E65A0B8A}
+		{8680102E-07AF-470C-A4E9-E0BF444F16F2} = {5DB133C4-2EB7-4207-8E55-9307E65A0B8A}
+		{E5B0358C-22A8-4F18-9C79-BC0253E20033} = {5DB133C4-2EB7-4207-8E55-9307E65A0B8A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89578756-D36B-4AF6-86FA-A060BF69CF23}
