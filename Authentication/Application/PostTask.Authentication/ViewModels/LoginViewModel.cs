@@ -7,13 +7,13 @@ namespace PostTask.Authentication.ViewModels;
 public sealed class LoginViewModel
 {
     [Required]
-    public string? Username { get; set; } = null;
+    public string Username { get; set; }
     [Required]
     [DataType(DataType.Password)]
-    public string? Password { get; set; } = null;
+    public string Password { get; set; }
 
     /// <summary>
     ///     Page return url
     /// </summary>
-    public string ReturnUrl { get; set; } = string.Empty;
+    public string ReturnUrl { get; set; }
 }

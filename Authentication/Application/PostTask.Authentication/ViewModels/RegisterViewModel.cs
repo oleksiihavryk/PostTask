@@ -14,20 +14,20 @@ public sealed class RegisterViewModel
     /// </summary>
     [Required]
     [MinLength(6)]
-    public string? Username { get; set; } = null;
+    public string Username { get; set; } 
     /// <summary>
     ///     User password view model
     /// </summary>
     [Required]
     [DataType(DataType.Password)]
-    public string? Password { get; set; } = null;
+    public string Password { get; set; } 
     /// <summary>
     ///     User password repeat view model
     /// </summary>
     [Required]
     [DataType(DataType.Password)]
     [Display(Name = "Repeat password")]
-    public string? RepeatPassword { get; set; } = null;
+    public string RepeatPassword { get; set; }
 
     /// <summary>
     ///     Page return url

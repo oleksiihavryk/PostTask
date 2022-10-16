@@ -16,6 +16,13 @@ namespace PostTask.Authentication.Controllers;
 public sealed class AccountController : Controller
 {
     /// <summary>
+    ///     Error message which occurred when username is unknown in system or
+    ///     password is incorrect
+    /// </summary>
+    public const string UsernameOrPasswordIsIncorrectErrorMessage = 
+        "Unknown user name or password";
+
+    /// <summary>
     ///     Sign in manager service
     /// </summary>
     private readonly SignInManager<User> _signInManager;
@@ -57,14 +64,15 @@ public sealed class AccountController : Controller
     ///     Returns view of login page
     /// </returns>
     [HttpGet("[action]")]
-    public ViewResult Login(string returnUrl)
-    {
-        var viewModel = new LoginViewModel()
+    public async Task<ViewResult> Login(string returnUrl)
+        => await Task.Run(() =>
         {
-            ReturnUrl = returnUrl
-        };
-        return View(viewModel);
-    }
+            var viewModel = new LoginViewModel()
+            {
+                ReturnUrl = returnUrl
+            };
+            return View(viewModel);
+        });
     /// <summary>
     ///     User register in system action
     /// </summary>
@@ -132,7 +140,7 @@ public sealed class AccountController : Controller
 
             ModelState.AddModelError(
                 key: string.Empty,
-                errorMessage: "Unknown user name or password");
+                errorMessage: UsernameOrPasswordIsIncorrectErrorMessage);
         }
 
         return View(viewModel);

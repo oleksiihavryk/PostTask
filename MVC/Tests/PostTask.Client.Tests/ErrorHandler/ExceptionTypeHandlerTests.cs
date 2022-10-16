@@ -1,7 +1,7 @@
 ﻿using PostTask.Client.Core.ErrorHandler;
 using PostTask.Client.Tests.TestData.SharedData;
 
-namespace PostTask.Client.Tests.ServicesTests.ErrorHandler;
+namespace PostTask.Client.Tests.ErrorHandler;
 public class ExceptionTypeHandlerTests
 {
     private readonly ExceptionTypeErrorHandler _eh;
@@ -12,7 +12,7 @@ public class ExceptionTypeHandlerTests
     }
 
     [Fact]
-    public void ErrorHandler_Handle_CustomUnknownException()
+    public void Handle_HandleUnsupportedException_ShouldReturnDefaultError()
     {
         //arrange
         var ue = new UnknownException();
@@ -25,7 +25,7 @@ public class ExceptionTypeHandlerTests
         Assert.Equal(error, _eh.DefaultError);
     }
     [Fact]
-    public void ErrorHandler_Handle_NotImplementedException()
+    public void Handle_HandleNotImplementedException_ShouldHandleCorrect()
     {
         //arrange
         var ue = new NotImplementedException();

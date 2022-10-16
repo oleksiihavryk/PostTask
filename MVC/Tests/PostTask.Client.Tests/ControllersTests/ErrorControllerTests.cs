@@ -6,12 +6,12 @@ using PostTask.Client.Core.ErrorHandler;
 using PostTask.Client.Tests.TestData.SharedData;
 using PostTask.Client.ViewModels;
 
-namespace PostTask.Client.Tests.ControllersTests.Error;
-public class ActionsTests
+namespace PostTask.Client.Tests.ControllersTests;
+public class ErrorControllerTests
 {
     private readonly HttpContext _hc;
 
-    public ActionsTests()
+    public ErrorControllerTests()
     {
         _hc = new DefaultHttpContext()
         {
@@ -32,9 +32,8 @@ public class ActionsTests
             RouteValues = null
         });
     }
-
     [Fact]
-    public async Task ErrorController_ActionIndex_OnExceptionTypeErrorHandler()
+    public async Task ExceptionTypeHandler_Index_HandleError_ShouldWorkCorrect()
     {
         //arrange
         var eh = new ExceptionTypeErrorHandler();

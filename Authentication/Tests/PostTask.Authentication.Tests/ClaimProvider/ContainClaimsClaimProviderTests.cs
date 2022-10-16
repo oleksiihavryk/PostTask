@@ -4,14 +4,14 @@ using PostTask.Authentication.Core.ClaimProvider;
 using PostTask.Authentication.Core.Exceptions;
 using PostTask.Authentication.Domain;
 
-namespace PostTask.Authentication.Tests.ServicesTests.ClaimProvider;
+namespace PostTask.Authentication.Tests.ClaimProvider;
 public class ContainClaimsClaimProviderTests
 {
     private readonly IDictionary<User, ICollection<Claim>?> _userClaimStore
         = new Dictionary<User, ICollection<Claim>?>();
-
+    
     [Fact]
-    public async Task ContainClaimsClaimProvider_ProvideClaims_ExistedUser()
+    public async Task Provide_ProvideClaimsForExistedUser_ShouldWorkCorrect()
     {
         //arrange
         var user = new User()
@@ -39,7 +39,7 @@ public class ContainClaimsClaimProviderTests
         }
     }
     [Fact]
-    public async Task ContainClaimsClaimProvider_ProvideClaims_NotExistedUser()
+    public async Task Provide_ProvideClaimsForNotExistedUser_ShouldThrowException()
     {
         async Task Test()
         {
@@ -58,7 +58,7 @@ public class ContainClaimsClaimProviderTests
         await Assert.ThrowsAsync<UserNotFoundException>(Test);
     }
     [Fact]
-    public async Task ContainClaimsClaimProvider_ProvideUserRoleClaim_NotExistedUser()
+    public async Task ProvideRoleClaim_ProvideRoleClaimForNotExistedUser_ShouldThrowException()
     {
         async Task Test()
         {
@@ -78,7 +78,7 @@ public class ContainClaimsClaimProviderTests
         await Assert.ThrowsAsync<UserNotFoundException>(Test);
     }
     [Fact]
-    public async Task ContainClaimsClaimProvider_ProvideUserRoleClaim_ExistedUser()
+    public async Task ProvideRoleClaim_ProvideRoleClaimForExistedUser_ShouldWorkCorrect()
     {
         //arrange
         var user = new User()
