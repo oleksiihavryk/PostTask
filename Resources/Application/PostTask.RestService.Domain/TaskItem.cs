@@ -10,7 +10,7 @@ public sealed class TaskItem : IIdentifiable
     /// <summary>
     ///     Task step identifier 
     /// </summary>
-    public Guid Id { get; set; } = Guid.NewGuid();
+    public Guid Id { get; set; } 
     /// <summary>
     ///     Task step name
     /// </summary>

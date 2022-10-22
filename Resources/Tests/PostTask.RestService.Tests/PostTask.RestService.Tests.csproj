@@ -26,4 +26,8 @@
     <ProjectReference Include="..\..\Application\PostTask.RestService\PostTask.RestService.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
 </Project>

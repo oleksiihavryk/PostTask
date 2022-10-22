@@ -83,7 +83,9 @@ public abstract class Folder<T> : ICollection<T>, IIdentifiable
     /// <param name="item">
     ///     Item what was be removed from folder
     /// </param>
-    /// <returns></returns>
+    /// <returns>
+    ///     Returns true if item is removed from folder, otherwise false
+    /// </returns>
     public bool Remove(T item)
         => _list.Remove(item);
 
