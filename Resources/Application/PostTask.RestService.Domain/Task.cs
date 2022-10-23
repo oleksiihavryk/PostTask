@@ -1,4 +1,5 @@
-﻿using PostTask.RestService.Domain.Interfaces;
+﻿using System.ComponentModel.DataAnnotations;
+using PostTask.RestService.Domain.Interfaces;
 
 namespace PostTask.RestService.Domain;
 /// <summary>
@@ -9,6 +10,7 @@ public sealed class Task : Folder<TaskItem>, IIdentifiable
     /// <summary>
     ///     Task state
     /// </summary>
+    [Required]
     public State State { get; set; }
 
     public Task()

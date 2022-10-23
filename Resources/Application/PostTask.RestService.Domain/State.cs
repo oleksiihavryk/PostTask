@@ -1,4 +1,5 @@
-﻿using PostTask.RestService.Domain.Interfaces;
+﻿using System.ComponentModel.DataAnnotations;
+using PostTask.RestService.Domain.Interfaces;
 
 namespace PostTask.RestService.Domain;
 
@@ -14,5 +15,7 @@ public class State : IIdentifiable
     /// <summary>
     ///     State name
     /// </summary>
+    [Required(AllowEmptyStrings = false)]
+    [MaxLength(64)]
     public string Name { get; set; } = string.Empty;
 }

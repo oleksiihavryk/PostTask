@@ -1,4 +1,5 @@
-﻿using PostTask.RestService.Domain.Exceptions;
+﻿using System.ComponentModel.DataAnnotations;
+using PostTask.RestService.Domain.Exceptions;
 using PostTask.RestService.Domain.Interfaces;
 
 namespace PostTask.RestService.Domain;
@@ -10,10 +11,12 @@ public sealed class TaskItem : IIdentifiable
     /// <summary>
     ///     Task step identifier 
     /// </summary>
-    public Guid Id { get; set; } 
+    public Guid Id { get; set; }
     /// <summary>
     ///     Task step name
     /// </summary>
+    [Required(AllowEmptyStrings = false)]
+    [MaxLength(64)]
     public string Name { get; set; } = string.Empty;
     /// <summary>
     ///     From what time task step is executing

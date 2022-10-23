@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using PostTask.RestService.Domain.Interfaces;
 
@@ -32,15 +33,24 @@ public abstract class Folder<T> : ICollection<T>, IIdentifiable
     /// <summary>
     ///     Folder name
     /// </summary>
+    [Required(AllowEmptyStrings = false)]
+    [MaxLength(64)]
     public string Name { get; set; } = string.Empty;
     /// <summary>
     ///     Folder description
     /// </summary>
+    [Required(AllowEmptyStrings = true)]
+    [MaxLength(256)]
     public string Description { get; set; } = string.Empty;
     /// <summary>
     ///     Folder user identifier 
     /// </summary>
+    [Required(AllowEmptyStrings = false)]
     public string UserId { get; set; } = string.Empty;
+    /// <summary>
+    ///     All containing items in folder
+    /// </summary>
+    public virtual IEnumerable<T> Items => _list.ToArray();
 
     /// <summary>
     ///     Add item into folder

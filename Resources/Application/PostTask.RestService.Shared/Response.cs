@@ -5,11 +5,6 @@
 public sealed class Response
 {
     /// <summary>
-    ///     Response common content type
-    /// </summary>
-    public const string ContentType = "application/json";
-
-    /// <summary>
     ///     Response status code
     /// </summary>
     public int StatusCode { get; set; }

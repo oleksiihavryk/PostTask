@@ -1,4 +1,5 @@
 using PostTask.RestService.Core.Extensions;
+using PostTask.RestService.Data.Extensions;
 using PostTask.RestService.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ var config = builder.Configuration;
 
 //Setup DI container
 services.AddResponseFactory();
+services.AddPostTaskDatabase(configurationFile: config);
 
 //Setup framework features
 services.AddControllers()
