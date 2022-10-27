@@ -10,7 +10,7 @@ public class TaskGroupConfiguration : IEntityTypeConfiguration<TaskGroup>
 {
     public void Configure(EntityTypeBuilder<TaskGroup> builder)
     {
-        builder.ToTable("TaskGroup");
+        builder.ToTable("TaskGroupDto");
         builder.HasMany(g => g.Items)
             .WithOne()
             .OnDelete(DeleteBehavior.ClientSetNull);

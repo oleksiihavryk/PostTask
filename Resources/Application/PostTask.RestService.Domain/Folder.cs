@@ -15,7 +15,7 @@ public abstract class Folder<T> : ICollection<T>, IIdentifiable
     /// <summary>
     ///     List of contained elements
     /// </summary>
-    private readonly List<T> _list = new List<T>();
+    private List<T> _list = new List<T>();
 
     /// <summary>
     ///     Count of contained elements in folder
@@ -50,7 +50,11 @@ public abstract class Folder<T> : ICollection<T>, IIdentifiable
     /// <summary>
     ///     All containing items in folder
     /// </summary>
-    public virtual IEnumerable<T> Items => _list.ToArray();
+    public virtual IEnumerable<T> Items
+    {
+        get => _list;
+        set => _list = value.ToList();
+    }
 
     /// <summary>
     ///     Add item into folder

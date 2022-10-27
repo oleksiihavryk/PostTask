@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PostTask.RestService.Data.Interfaces;
 using PostTask.RestService.Shared.Constants;
 
 namespace PostTask.RestService.Data.Extensions;
@@ -10,7 +11,7 @@ namespace PostTask.RestService.Data.Extensions;
 public static class ConfigurationExtensions
 {
     /// <summary>
-    ///     Add common database context into DI container and configured
+    ///     AddAsync common database context into DI container and configured
     ///     database configurationFile configuration file
     /// </summary>
     /// <param name="services">
@@ -29,5 +30,19 @@ public static class ConfigurationExtensions
             opt.UseSqlServer(
                 configurationFile.GetConnectionString(
                     name: DatabaseConstants.ConnectionStringKey)));
-    
+    /// <summary>
+    ///     Add data repositories into DI container
+    /// </summary>
+    /// <param name="services">
+    ///     DI container provider
+    /// </param>
+    /// <returns>
+    ///     Returns itself
+    /// </returns>
+    public static IServiceCollection AddDataRepositories(this IServiceCollection services)
+        => services
+            .AddScoped<IStateRepository, StateRepository>()
+            .AddScoped<ITaskRepository, TaskRepository>()
+            .AddScoped<ITaskGroupRepository, TaskGroupRepository>()
+            .AddScoped<IGroupFolderRepository, GroupFolderRepository>();
 }

@@ -22,7 +22,7 @@ internal static class ConfigurationExtensions
             endpoint.MapControllers();
         });
     /// <summary>
-    ///     Add swagger services and features into service with application
+    ///     AddAsync swagger services and features into service with application
     ///     configuration
     /// </summary>
     /// <param name="services">
@@ -69,7 +69,7 @@ internal static class ConfigurationExtensions
         return app;
     }
     /// <summary>
-    ///     Add global exception handler middleware into service features collection
+    ///     AddAsync global exception handler middleware into service features collection
     /// </summary>
     /// <param name="services">
     ///     Service features provider
@@ -81,7 +81,7 @@ internal static class ConfigurationExtensions
         this IServiceCollection services)
         => services.AddScoped<GlobalExceptionHandlerMiddleware>();
     /// <summary>
-    ///     Add global exception handler feature into middleware chain
+    ///     AddAsync global exception handler feature into middleware chain
     /// </summary>
     /// <param name="app">
     ///     Middleware chain provider

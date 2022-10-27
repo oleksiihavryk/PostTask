@@ -22,10 +22,6 @@ public class PostTaskDatabaseContext : DbContext
     /// </summary>
     public DbSet<UserState> UserStates { get; set; } = null!;
     /// <summary>
-    ///     Task items database set
-    /// </summary>
-    public DbSet<TaskItem> TaskItems { get; set; } = null!;
-    /// <summary>
     ///     Task group database set
     /// </summary>
     public DbSet<TaskGroup> TaskGroups { get; set; } = null!;

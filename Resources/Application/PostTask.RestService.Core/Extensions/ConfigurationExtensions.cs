@@ -8,7 +8,7 @@ namespace PostTask.RestService.Core.Extensions;
 public static class ConfigurationExtensions
 {
     /// <summary>
-    ///    Add response factory service into DI container 
+    ///    AddAsync response factory service into DI container 
     /// </summary>
     /// <param name="services">
     ///     DI container provider

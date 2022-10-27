@@ -106,7 +106,7 @@ namespace PostTask.RestService.Data.Migrations
                     b.ToTable("Task", (string)null);
                 });
 
-            modelBuilder.Entity("PostTask.RestService.Domain.TaskGroup", b =>
+            modelBuilder.Entity("PostTask.RestService.Domain.TaskGroupDto", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -133,7 +133,7 @@ namespace PostTask.RestService.Data.Migrations
 
                     b.HasIndex("GroupFolderId");
 
-                    b.ToTable("TaskGroup", (string)null);
+                    b.ToTable("TaskGroupDto", (string)null);
                 });
 
             modelBuilder.Entity("PostTask.RestService.Domain.TaskItem", b =>
@@ -190,14 +190,14 @@ namespace PostTask.RestService.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PostTask.RestService.Domain.TaskGroup", null)
+                    b.HasOne("PostTask.RestService.Domain.TaskGroupDto", null)
                         .WithMany()
                         .HasForeignKey("TaskGroupId");
 
                     b.Navigation("State");
                 });
 
-            modelBuilder.Entity("PostTask.RestService.Domain.TaskGroup", b =>
+            modelBuilder.Entity("PostTask.RestService.Domain.TaskGroupDto", b =>
                 {
                     b.HasOne("PostTask.RestService.Domain.GroupFolder", null)
                         .WithMany("Items")
@@ -206,7 +206,7 @@ namespace PostTask.RestService.Data.Migrations
 
             modelBuilder.Entity("PostTask.RestService.Domain.TaskItem", b =>
                 {
-                    b.HasOne("PostTask.RestService.Domain.TaskGroup", null)
+                    b.HasOne("PostTask.RestService.Domain.TaskGroupDto", null)
                         .WithMany("Items")
                         .HasForeignKey("TaskGroupId");
 
@@ -226,7 +226,7 @@ namespace PostTask.RestService.Data.Migrations
                     b.Navigation("Items");
                 });
 
-            modelBuilder.Entity("PostTask.RestService.Domain.TaskGroup", b =>
+            modelBuilder.Entity("PostTask.RestService.Domain.TaskGroupDto", b =>
                 {
                     b.Navigation("Items");
                 });

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PostTask.RestService.Data;
 
@@ -11,9 +12,10 @@ using PostTask.RestService.Data;
 namespace PostTask.RestService.Data.Migrations
 {
     [DbContext(typeof(PostTaskDatabaseContext))]
-    partial class PostTaskDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20221025111202_TaskStateFix")]
+    partial class TaskStateFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,7 +66,7 @@ namespace PostTask.RestService.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TaskState", (string)null);
+                    b.ToTable("ItemState", (string)null);
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("State");
                 });
@@ -184,8 +186,7 @@ namespace PostTask.RestService.Data.Migrations
                 {
                     b.HasOne("PostTask.RestService.Domain.State", "State")
                         .WithMany()
-                        .HasForeignKey("StateId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("StateId");
 
                     b.HasOne("PostTask.RestService.Domain.TaskGroup", null)
                         .WithMany()

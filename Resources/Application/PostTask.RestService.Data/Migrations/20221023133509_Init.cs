@@ -38,7 +38,7 @@ namespace PostTask.RestService.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TaskGroup",
+                name: "TaskGroupDto",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -80,7 +80,7 @@ namespace PostTask.RestService.Data.Migrations
                     table.ForeignKey(
                         name: "FK_Task_TaskGroup_TaskGroupId",
                         column: x => x.TaskGroupId,
-                        principalTable: "TaskGroup",
+                        principalTable: "TaskGroupDto",
                         principalColumn: "Id");
                 });
 
@@ -107,7 +107,7 @@ namespace PostTask.RestService.Data.Migrations
                     table.ForeignKey(
                         name: "FK_TaskItem_TaskGroup_TaskGroupId",
                         column: x => x.TaskGroupId,
-                        principalTable: "TaskGroup",
+                        principalTable: "TaskGroupDto",
                         principalColumn: "Id");
                 });
 
@@ -123,7 +123,7 @@ namespace PostTask.RestService.Data.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_TaskGroup_GroupFolderId",
-                table: "TaskGroup",
+                table: "TaskGroupDto",
                 column: "GroupFolderId");
 
             migrationBuilder.CreateIndex(
@@ -149,7 +149,7 @@ namespace PostTask.RestService.Data.Migrations
                 name: "ItemState");
 
             migrationBuilder.DropTable(
-                name: "TaskGroup");
+                name: "TaskGroupDto");
 
             migrationBuilder.DropTable(
                 name: "TaskGroupFolder");

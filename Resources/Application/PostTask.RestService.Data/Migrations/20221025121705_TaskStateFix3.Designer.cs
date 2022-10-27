@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PostTask.RestService.Data;
 
@@ -11,9 +12,10 @@ using PostTask.RestService.Data;
 namespace PostTask.RestService.Data.Migrations
 {
     [DbContext(typeof(PostTaskDatabaseContext))]
-    partial class PostTaskDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20221025121705_TaskStateFix3")]
+    partial class TaskStateFix3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

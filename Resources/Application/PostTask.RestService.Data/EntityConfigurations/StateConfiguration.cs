@@ -10,6 +10,9 @@ public class StateConfiguration : IEntityTypeConfiguration<State>
 {
     public void Configure(EntityTypeBuilder<State> builder)
     {
-        builder.ToTable("ItemState");
+        builder.ToTable("TaskState");
+        builder.HasMany<Domain.Task>()
+            .WithOne(t => t.State)
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }

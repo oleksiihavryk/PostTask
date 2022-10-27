@@ -1,15 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PostTask.RestService.Domain;
-using AppTask = PostTask.RestService.Domain.Task;
 
 namespace PostTask.RestService.Data.EntityConfigurations;
 /// <summary>
 ///     Task entity configuration class
 /// </summary>
-public class TaskConfiguration : IEntityTypeConfiguration<AppTask>
+public class TaskConfiguration : IEntityTypeConfiguration<Domain.Task>
 {
-    public void Configure(EntityTypeBuilder<AppTask> builder)
+    public void Configure(EntityTypeBuilder<Domain.Task> builder)
     {
         builder.ToTable("Task");
         builder

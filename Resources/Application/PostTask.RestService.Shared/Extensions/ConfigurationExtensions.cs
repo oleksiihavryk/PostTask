@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using PostTask.RestService.Domain;
+using PostTask.RestService.Shared.DataTransferObjects;
+using Task = PostTask.RestService.Domain.Task;
 
 namespace PostTask.RestService.Shared.Extensions;
 /// <summary>
@@ -20,6 +23,12 @@ public static class ConfigurationExtensions
     {
         services.AddAutoMapper(opt =>
         {
+            opt.CreateDoubleLinkedMap<GroupFolder, GroupFolderDto>();
+            opt.CreateDoubleLinkedMap<Domain.Task, TaskDto>();
+            opt.CreateDoubleLinkedMap<TaskGroup, TaskGroupDto>();
+            opt.CreateDoubleLinkedMap<TaskItem, TaskItemDto>();
+            opt.CreateDoubleLinkedMap<State, StateDto>();
+            opt.CreateDoubleLinkedMap<UserState, UserStateDto>();
         });
         return services;
     }
